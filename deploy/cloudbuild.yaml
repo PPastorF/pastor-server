@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/go'
-  args: ['get']
+  args: ['mod', 'init', '&&', 'get']
   env:
   - GO111MODULE=on
   - GOPATH=.
