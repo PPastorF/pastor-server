@@ -1,6 +1,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/go'
   args: ['get']
+  - GOPATH=.
 
 - name: 'gcr.io/cloud-builders/go'
   args: ['build', '-a', '-installsuffix', 'cgo', '-o', 'build/server']
