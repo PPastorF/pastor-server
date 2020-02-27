@@ -1,8 +1,9 @@
 steps:
 - name: 'gcr.io/cloud-builders/go'
   args: ['get']
-  env:
+s  env:
   - GO111MODULE=on
+  - GOPATH=.
   volumes:
   - name: go-modules
     path: /go
