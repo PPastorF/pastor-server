@@ -9,7 +9,7 @@ steps:
 
 artifacts:
   objects:
-    location: gs://$PROJECT_ID_cloudbuild/bin/
+    location: gs://${PROJECT_ID}_cloudbuild/bin/
     paths:
     - build/server
 images:
