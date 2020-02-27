@@ -3,7 +3,7 @@ steps:
   args: ['build', '-a', '-installsuffix', 'cgo', '-o', 'build/server']
   env:
   - GO111MODULE=on
-  - GOPATH=.
+  - GOPATH=/workspace
   - CGO_ENABLED=0
   - GOOS=linux
 - name: 'gcr.io/cloud-builders/docker'
