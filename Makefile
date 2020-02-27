@@ -28,8 +28,11 @@ build:
 	make compile \
 	&& make build-image	
 deploy:
-	make push-image \
-	&& make update-instance
+	git add . \
+	&& git commit -m "Deploy tag $(TAG)" \
+	&& git tag $(TAG) \
+	&& git push origin $(TAG)
+	# && make update-instance
 run-pipeline:
 	make compile \
 	&& make build-image \
