@@ -1,10 +1,6 @@
-# make compile \
-# && make build-image \
-# && make push-image \
-# && make update-instance
 steps:
 - name: 'gcr.io/cloud-builders/go'
-  args: ['build' '-a' '-installsuffix' 'cgo' '-o' 'build/server']
+  args: ['build', '-a', '-installsuffix', 'cgo', '-o', 'build/server']
   env:
   - 'CGO_ENABLED=0'
   - 'GOOS=linux'
