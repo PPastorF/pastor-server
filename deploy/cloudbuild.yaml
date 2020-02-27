@@ -1,6 +1,6 @@
 steps:
 - name: golang
-  args: ['build', '-a', '-installsuffix', 'cgo', '-o', 'build/server']
+  args: ['go', 'build', '-a', '-installsuffix', 'cgo', '-o', 'build/server']
   env:
   - GO111MODULE=on
   - CGO_ENABLED=0
