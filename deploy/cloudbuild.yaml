@@ -3,7 +3,7 @@ steps:
   args: ['mod', 'init']
   env:
   - GO111MODULE=on
-  - GOPATH=.
+  - GOPATH=/workspace
   volumes:
   - name: go-modules
     path: /go
