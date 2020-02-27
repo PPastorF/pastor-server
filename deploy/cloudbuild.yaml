@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/go'
-  args: ['mod', 'init', '&&', 'get']
+  args: ['mod', 'init', '&&']
   env:
   - GO111MODULE=on
   - GOPATH=.
@@ -8,6 +8,15 @@ steps:
   - name: go-modules
     path: /go
 
+- name: 'gcr.io/cloud-builders/go'
+    args: ['get']
+    env:
+    - GO111MODULE=on
+    - GOPATH=.
+    volumes:
+    - name: go-modules
+      path: /go
+  
 - name: 'gcr.io/cloud-builders/go'
   args: ['build', '-a', '-installsuffix', 'cgo', '-o', 'build/server']
   env:
