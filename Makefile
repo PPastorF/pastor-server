@@ -4,8 +4,6 @@
 .PHONY: deploy
 BIN=build/server
 TAG=1.3
-IMAGE_TAG=pedropastor/pastor-server:$(TAG)
-GCP_INSTANCE=pastor-server
 compile:
 	CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o $(BIN)
 run:
@@ -14,8 +12,6 @@ build-image:
 	docker build . --no-cache -t $(IMAGE_TAG) -f deploy/Dockerfile
 run-image:
 	docker run -d $(IMAGE_TAG)
-push-image:
-	docker push $(IMAGE_TAG)
 local-up:
 	export IMAGE_TAG=$(IMAGE_TAG) && \
 	docker-compose -f deploy/docker-compose.yaml up -d && echo $(IMAGE_TAG)
@@ -28,11 +24,8 @@ build:
 	make compile \
 	&& make build-image	
 deploy:
-	git add . \
-	&& git commit -m "Deploy tag $(TAG)" \
-	&& git tag $(TAG) \
+	git tag $(TAG) \
 	&& git push origin $(TAG)
-	# && make update-instance
 run-pipeline:
 	make compile \
 	&& make build-image \

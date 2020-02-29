@@ -10,8 +10,6 @@ func main() {
 	e := echo.New()
 
 	e.GET("/", hello)
-	e.GET("/teste/:param", getTeste)
-
 	e.Logger.Fatal(e.Start(":80"))
 }
 
