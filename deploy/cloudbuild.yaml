@@ -8,9 +8,6 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '.', '-t', 'gcr.io/$PROJECT_ID/$REPO_NAME:$TAG_NAME', '-f', 'deploy/Dockerfile']
 
-- name:  'gcr.io/cloud-builders/gcloud'
-  args: ['beta', 'compute', 'instances', 'update-container', '$_GKE_INSTANCE', '--container-image', 'gcr.io/$PROJECT_ID/$REPO_NAME/$TAG_NAME', '--zone', 'us-east1-b']
-
 artifacts:
   objects:
     location: gs://${PROJECT_ID}_cloudbuild/bin/
