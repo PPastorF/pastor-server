@@ -9,7 +9,7 @@ steps:
   args: ['build', '.', '-t', 'gcr.io/$PROJECT_ID/$REPO_NAME:$TAG_NAME', '-f', 'deploy/Dockerfile']
 
 - name:  'gcr.io/cloud-builders/gcloud'
-  args: ['compute', 'instances', 'update-container', 'flora-server-1', '--container-image=gcr.io/$PROJECT_ID/$REPO_NAME:$TAG_NAME']
+  args: ['compute', 'instances', 'update-container', 'flora-server-1', '--container-image=gcr.io/$PROJECT_ID/$REPO_NAME:$TAG_NAME', '--zone', 'us-east1-b']
 
 artifacts:
   objects:
