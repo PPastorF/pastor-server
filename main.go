@@ -14,5 +14,5 @@ func main() {
 }
 
 func hello(c echo.Context) error {
-	return c.String(http.StatusOK, "pipeline de deploy feita denovo")
+	return c.String(http.StatusOK, "flora fodase kkk")
 }
