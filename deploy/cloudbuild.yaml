@@ -18,3 +18,4 @@ artifacts:
     - build/server
 images:
 - 'gcr.io/$PROJECT_ID/$REPO_NAME/$TAG_NAME'
+- 'gcr.io/$PROJECT_ID/$REPO_NAME/$TAG_NAME'

@@ -16,10 +16,5 @@ func main() {
 }
 
 func hello(c echo.Context) error {
-	return c.String(http.StatusOK, "pipeline de deploy feita")
-}
-
-func getTeste(c echo.Context) error {
-	param := c.Param("param")
-	return c.String(http.StatusOK, param)
+	return c.String(http.StatusOK, "pipeline de deploy feita denovo")
 }
