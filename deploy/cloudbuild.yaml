@@ -8,6 +8,9 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '.', '-t', 'gcr.io/$PROJECT_ID/$REPO_NAME:$TAG_NAME', '-f', 'deploy/Dockerfile']
 
+- name:  'gcr.io/cloud-builders/gcloud'
+  args: ['gcloud', 'compute', 'instances', 'update-container', 'flora-server-1', '--container-image=gcr.io/$PROJECT_ID/$REPO_NAME:$TAG_NAME']
+
 artifacts:
   objects:
     location: gs://${PROJECT_ID}_cloudbuild/bin/
